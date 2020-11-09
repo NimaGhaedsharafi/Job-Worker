@@ -1,0 +1,23 @@
+env: dev
+debug: true
+logger:
+    level: debug
+
+mysql:
+    host: mysql
+    port: 3306
+    username: root
+    password: root
+    dbname: core
+    connect-timeout: 1000
+    max-open-connections: 10
+    max-idle-connections: 5
+
+storage:
+    adrs: minio
+    bucket: health
+    domain: https://somewhere.com/
+
+dispatcher:
+    max-worker: 10
+    max-queue: 10
