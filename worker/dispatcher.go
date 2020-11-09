@@ -1,7 +1,5 @@
 package worker
 
-import "coroner/config"
-
 type Dispatcher struct {
 	// A pool of workers channels that are registered with the dispatcher
 	WorkerPool chan chan Job
@@ -15,7 +13,7 @@ func NewDispatcher(maxWorkers int) *Dispatcher {
 
 func (d *Dispatcher) Run() {
 	// starting n number of workers
-	for i := 0; i < config.Cfg.Dispatcher.MaxWorker; i++ {
+	for i := 0; i < d.MaxWorker; i++ {
 		worker := NewWorker(d.WorkerPool)
 		worker.Start()
 	}
