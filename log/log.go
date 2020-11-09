@@ -1,10 +1,9 @@
 package log
 
 import (
-	"time"
-	"zamin/config"
-
+	"coroner/config"
 	"github.com/sirupsen/logrus"
+	"time"
 )
 
 func SetupLogger() {
