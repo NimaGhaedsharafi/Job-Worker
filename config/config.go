@@ -2,9 +2,9 @@ package config
 
 import (
 	"encoding/json"
+	"github.com/go-playground/validator/v10"
 	"github.com/sirupsen/logrus"
 	"github.com/spf13/viper"
-	"github.com/go-playground/validator/v10"
 	"time"
 )
 
@@ -58,6 +58,7 @@ type (
 		Logger Logger `mapstructure:"logger" validate:"required"`
 		Mysql Mysql `mapstructure:"database" validate:"required"`
 		Storage  Storage  `mapstructure:"storage"`
+		Dispatcher Dispatcher `mapstructure:"dispatcher"`
 	}
 
 	Logger struct {
@@ -80,6 +81,10 @@ type (
 		Adrs   string `mapstructure:"adrs" validate:"required"`
 		Bucket string `mapstructure:"bucket" validate:"required"`
 		Domain string `mapstructure:"domain" validate:"required"`
+	}
+	Dispatcher struct {
+		MaxWorker int `mapstructure:"max-worker"`
+		MaxQueue int `mapstructure:"max-queue"`
 	}
 )
 
