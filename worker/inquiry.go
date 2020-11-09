@@ -1,13 +1,15 @@
 package worker
 
-type Payload struct {
+// Job represents the job to be run
+type Job struct {
 	SSN string
+	Result Result
 }
 
 type Result struct {
 	Status int
 }
 
-func (P *Payload) Inquiry() (*Result, error) {
-	return nil, nil
+func (j *Job) Inquiry() error {
+	return nil
 }
